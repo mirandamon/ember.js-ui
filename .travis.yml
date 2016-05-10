@@ -1,22 +1,23 @@
----
 language: node_js
 node_js:
-  - "4"
-
+- '4'
 sudo: false
-
 cache:
   directories:
-    - node_modules
-
+  - node_modules
 before_install:
-  - npm config set spin false
-  - npm install -g bower
-  - npm install phantomjs-prebuilt
-
+- npm config set spin false
+- npm install -g bower
+- npm install phantomjs-prebuilt
 install:
-  - npm install
-  - bower install
-
+- npm install
+- bower install
 script:
-  - npm test
+- npm test
+deploy:
+  provider: heroku
+  api_key:
+    secure: Ianj2NKw3UOJJbhXm0S+PXISq0R7cn2YFaAuJcOQ3QY05FzNO2kBOn9YmL0mf6RZil5VolDE8se9PfuK1vWW6iIJip+/X1T5tZlnh1cTnpumsVbvoj48oTBhYXRQ96K6Dwk+aURIoHSYeWN0GTJ1Pl3wo0GXs6u1LsLXO34wRvgDow0qnn8XvkIymZAw7pk3AflkmycNNz0dv1GeJnplVld7G3/j5DlumOGzchE9IEElbtVnmEUGgR22AlurA1jR1aWCoyNcGV1UinPEGwbfYizajPqfE5ka+8XXCxVGDhoZd8EHkqwkZSQiC+Ku3nRWmedsN4UkTJBBRNrIRmH7JLIhRAELwi/Mej1QhSFQSZko7GB0Q69jpCRY8cEFy/9muOWDdLaZHk25Gv3X8Dcfc2vNrQJ4EogAEze1qOSmsbWh2EYP8FWrpoKa8kk60K7ZMnvGtWzI5co72JqJW4M72HHxTQY3xpvbxA/BhPqIjga17UoSxXs7PqOjLyzuGnChSSJAlg9iGtCf4syLJMxyMYaS8+/U4hnAlk1o6NzsOx6xT+cIm6j+tCshXF925PGHUoHyd0D/S/DUhojdVkz2HKmMmpCh2XRzCDlj7luUwST5mu8kV7UF7yoSWHgcCusVZvMqLN17iVFBQj/cpg7ftVulplWqHPs6aCqIPu6WgYU=
+  app: pacific-ravine-82655
+  on:
+    repo: mirandamon/fun-times-with-ember
